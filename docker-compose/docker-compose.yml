@@ -1,0 +1,27 @@
+version: '3.3'
+
+networks:
+  haproxy-compose:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
+
+services:
+  nginx:
+    container_name: nginx-haproxy
+    image: nginx
+    ports:
+      - '80'
+    networks:
+      - haproxy-compose
+
+  haproxy:
+    container_name: haproxy-compose
+    image: haproxy:2.6
+    ports:
+      - '80:80'
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    networks:
+      - haproxy-compose
