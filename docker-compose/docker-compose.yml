@@ -8,8 +8,28 @@ networks:
         - subnet: 172.21.0.0/16
 
 services:
-  nginx:
-    container_name: nginx-haproxy
+  server-1:
+    container_name: server-1
+    image: nginx
+    ports:
+      - '80'
+    volumes:
+    - ./nginx:/usr/share/nginx/html
+    networks:
+      - haproxy-compose
+
+  server-2:
+    container_name: server-2
+    image: nginx
+    ports:
+      - '80'
+    volumes:
+    - ./nginx:/usr/share/nginx/html
+    networks:
+      - haproxy-compose
+
+  server-3:
+    container_name: server-3
     image: nginx
     ports:
       - '80'
