@@ -14,7 +14,7 @@ services:
     ports:
       - '80'
     volumes:
-    - ./nginx:/usr/share/nginx/html
+    - ./server-1:/usr/share/nginx/html
     networks:
       - haproxy-compose
 
@@ -24,7 +24,7 @@ services:
     ports:
       - '80'
     volumes:
-    - ./nginx:/usr/share/nginx/html
+    - ./server-2:/usr/share/nginx/html
     networks:
       - haproxy-compose
 
@@ -34,7 +34,7 @@ services:
     ports:
       - '80'
     volumes:
-    - ./nginx:/usr/share/nginx/html
+    - ./server-3:/usr/share/nginx/html
     networks:
       - haproxy-compose
 
