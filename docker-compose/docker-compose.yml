@@ -13,6 +13,8 @@ services:
     image: nginx
     ports:
       - '80'
+    volumes:
+    - ./nginx:/usr/share/nginx/html
     networks:
       - haproxy-compose
 
