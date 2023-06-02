@@ -44,6 +44,7 @@ services:
     ports:
       - '80:80'
       - '443:443'
+      - '1936:1936'
     volumes:
       - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
     networks:
